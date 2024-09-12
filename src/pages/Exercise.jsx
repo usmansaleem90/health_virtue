@@ -1,9 +1,12 @@
 import { Progress } from "@/components/ui/progress";
 import { GrStatusGood } from "react-icons/gr";
-import { FaRegCircleXmark } from "react-icons/fa6";
+import { FaRegRectangleXmark } from "react-icons/fa6";
 import { FiArrowLeft } from "react-icons/fi";
 import { TbClockHour3 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
+import { GiCheckMark } from "react-icons/gi";
+import { FaRectangleXmark } from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 
 import { useState } from "react";
 
@@ -78,30 +81,39 @@ const Exercise = () => {
           </Link>
         ))}
       </div>
-      <p className="mt-5 font-semibold">Have you take your exercise today?</p>
-      <div className="flex justify-end gap-3">
+      <div className="flex justify-between mt-4 ps-2" style={{border:"1px solid black"}}>
+      <p className=" font-semibold">Have you take your exercise today?</p>
+      <div className="flex justify-end  border" >
+        
         <button
           id="cancelButton"
-          className={`text-3xl rounded-full focus:outline-none font-bold ${
+          className={`text-2xl  focus:outline-none font-bold ${
             selectedButton === "cancelButton"
               ? "text-white bg-black"
               : "text-black bg-white"
           }`}
           onClick={() => handleButtonClick("cancelButton")}
+          style={{borderLeft:"1px solid black" , borderRight:"1px solid black"}}
         >
-          <FaRegCircleXmark />
+          <FaXmark /> 
+
+
+
+
         </button>
         <button
           id="confirmButton"
-          className={`text-3xl rounded-full border-none flex items-center justify-center focus:outline-none font-bold ${
+          className={`text-2xl border-none flex items-center justify-center focus:outline-none font-bold ${
             selectedButton === "confirmButton"
               ? "text-white bg-blue-500"
-              : "text-blue-500 bg-white"
+              : "text-blue bg-white"
           }`}
           onClick={() => handleButtonClick("confirmButton")}
         >
-          <GrStatusGood />
+         <GiCheckMark />
+
         </button>
+      </div>
       </div>
     </div>
   );
